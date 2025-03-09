@@ -1,9 +1,16 @@
+CMAKE_ARGS=
+
+NINJA := $(shell command -v ninja)
+ifneq ($(NINJA),)
+	CMAKE_ARGS+="-G Ninja"
+endif
+
 all:
-	cmake -S . -B build -G Ninja
+	cmake -S . -B build ${CMAKE_ARGS}
 	cmake --build build
 
 debug:
-	cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug
+	cmake -S . -B build ${CMAKE_ARGS} -DCMAKE_BUILD_TYPE=Debug
 	cmake --build build
 
 valgrind:
