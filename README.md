@@ -2,6 +2,10 @@
 
 nbody simulation on GPU via openGL compute shader
 
+
+https://github.com/user-attachments/assets/e63a84e2-42b4-40fc-9847-b8ff0b733461
+
+
 ## build
 helper make file provided:
 ```
