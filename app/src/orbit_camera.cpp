@@ -4,7 +4,6 @@ glm::vec3 camera_pos = glm::vec3(0.0f, 0.0f, 3.0f);
 glm::vec3 camera_front = glm::vec3(0.0f, 0.0f, -1.0f);
 glm::vec3 camera_up = glm::vec3(0.0f, 1.0f, 0.0f);
 
-bool space_pressed = false;
 bool left_mouse_pressed = false;
 double last_x, last_y;
 float yaw = 0.0f;
@@ -13,15 +12,6 @@ float radius = 1.0f;
 
 glm::vec3 target = glm::vec3(0.0f, 0.0f, 0.0f);
 glm::mat4 projection = glm::ortho(0.0f, 800.0f, 800.0f, 0.0f);
-
-void OCKeyCallback(GLFWwindow *window, int key, int scancode, int action,
-
-                   int mode) {
-  if (key == GLFW_KEY_SPACE && action == GLFW_PRESS)
-    space_pressed = true;
-  if (key == GLFW_KEY_SPACE && action == GLFW_RELEASE)
-    space_pressed = false;
-}
 
 void OCMouseButtonCallback(GLFWwindow *window, int button, int action, int mods) {
   if (button == GLFW_MOUSE_BUTTON_LEFT) {
@@ -72,6 +62,7 @@ glm::mat4 OCGetView() {
 
   return glm::lookAt(camera_pos, target, camera_up);
 }
+
 void OCSetTarget(glm::vec3 new_target) {
   target = new_target;
 }
